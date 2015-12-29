@@ -1,0 +1,29 @@
+<VirtualHost *:80>
+  ServerName <%= node['hostname'] %>
+  ServerAdmin 'ops@home.net'
+  
+  DocumentRoot <%= node['lamp']['document_root'] %>
+  <Directory />
+    Options FollowSymLinks
+    AllowOverride None
+  </Directory>
+
+  <Directory <%= node['lamp']['document_roo'] %> />
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride None
+    Order allow,deny
+    allow from all
+  </Directory>
+
+  ErrorLog <%= node['lamp']['apache_error_log'] %>
+  LogLevel debug
+
+  CustomLog <%= node['lamp']['apache_access_log'] %> combined
+  ServerSignature Off
+
+  AddType application/x-httpd-php .php
+  AddType application/x-httpd-php-source .phps
+  DirectoryIndex index.php index.html
+
+</VirtualHost>
+
