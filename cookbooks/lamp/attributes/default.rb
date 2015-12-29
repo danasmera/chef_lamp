@@ -1,0 +1,12 @@
+default['lamp']['user'] = 'web_admin'
+default['lamp']['group'] = 'web_admin'
+default['lamp']['document_root'] = '/var/www/customers/public_html'
+default['lamp']['apache_error_log'] = '/var/log/apache2/error.log'
+default['lamp']['apache_access_log'] = '/var/log/apache2/access.log'
+default['firewall']['allow_ssh'] = true
+default['lamp']['passwords']['secret_path'] = '/etc/chef/data_bag_secret'
+default['lamp']['database']['dbname'] = 'products'
+default['lamp']['database']['host'] = '127.0.0.1'
+default['lamp']['database']['username'] = 'root'
+default['lamp']['database']['app']['username'] = 'db_admin'
+default['lamp']['database']['seed_file'] = '/tmp/create-tables.sql'
